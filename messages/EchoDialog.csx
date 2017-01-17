@@ -41,7 +41,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-            await context.PostAsync($"{this.count++}: Dr. Bad Bot says {message.Text}");
+            await context.PostAsync($"{this.count++}: The Bot says {message.Text}");
             context.Wait(MessageReceivedAsync);
         }
     }
