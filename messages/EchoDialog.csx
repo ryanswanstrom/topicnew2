@@ -1,7 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using System;
+using System.Text;
+using System.Threading.Tasks;
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
 [Serializable]
@@ -41,7 +42,11 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-            await context.PostAsync($"{this.count++}: Sir Bot says:  {message.Text}");
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.count++} ");
+            sb.AppendLine("Big Bot says you said: ");
+            sb.Append(message.Text);
+            await context.PostAsync(sb.ToString());
             context.Wait(MessageReceivedAsync);
         }
     }
