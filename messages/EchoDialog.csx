@@ -44,7 +44,7 @@ public class EchoDialog : IDialog<object>
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"{this.count++} ");
-            sb.AppendLine("Big Bot says you said: ");
+            sb.AppendLine("you said: ");
             sb.Append(message.Text);
             await context.PostAsync(sb.ToString());
             context.Wait(MessageReceivedAsync);
